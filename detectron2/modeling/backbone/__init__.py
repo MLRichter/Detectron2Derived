@@ -12,7 +12,7 @@ from .resnet import (
     make_stage,
     BottleneckBlock,
 )
-from .convnext import *
+from .convnext import build_convnext_backbone, ConvNeXt
 from .vit import ViT, SimpleFeaturePyramid, get_vit_lr_decay_rate
 from .mvit import MViT
 from .swin import SwinTransformer
