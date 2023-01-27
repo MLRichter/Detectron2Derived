@@ -115,6 +115,13 @@ class ConvNeXt(Backbone):
             "c2",
             "c3",
         ]
+        self._out_feature_channels = {
+            "c0": 96,
+            "c1": 192,
+            "c2": 384,
+            "c3": 768
+        }
+
 
     def _init_weights(self, m):
         if isinstance(m, (nn.Conv2d, nn.Linear)):
