@@ -14,7 +14,7 @@ from timm.models.layers import trunc_normal_, DropPath
 
 from mmcv_custom import load_checkpoint
 from mmdet.utils import get_root_logger
-from .builder import BACKBONES
+from .build import BACKBONE_REGISTRY
 
 
 class Block(nn.Module):
