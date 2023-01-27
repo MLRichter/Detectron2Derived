@@ -72,13 +72,13 @@ class ConvNeXt(Backbone):
 
     def __init__(self, in_chans=3, depths=[3, 3, 9, 3], dims=[96, 192, 384, 768],
                  drop_path_rate=0., layer_scale_init_value=1e-6, out_indices=[0, 1, 2, 3],
-                 stem=4
+                 stem_shape=4
                  ):
         super().__init__()
 
         self.downsample_layers = nn.ModuleList()  # stem and 3 intermediate downsampling conv layers
         stem = nn.Sequential(
-            nn.Conv2d(in_chans, dims[0], kernel_size=stem, stride=stem),
+            nn.Conv2d(in_chans, dims[0], kernel_size=stem_shape, stride=stem_shape),
             LayerNorm(dims[0], eps=1e-6, data_format="channels_first")
         )
         self.downsample_layers.append(stem)
@@ -122,10 +122,10 @@ class ConvNeXt(Backbone):
             "c3": 768
         }
         self._out_feature_strides = {
-            "c0": stem,
-            "c1": stem*2,
-            "c2": stem*4,
-            "c3": stem*8
+            "c0": stem_shape,
+            "c1": stem_shape*2,
+            "c2": stem_shape*4,
+            "c3": stem_shape*8
         }
 
 
@@ -212,5 +212,5 @@ def build_convnext_backbone(cfg, input_shape):
         drop_path_rate=0.4,
         layer_scale_init_value=1.0,
         out_indices=[0, 1, 2, 3],
-        stem=4
+        stem_shape=4
     )
