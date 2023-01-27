@@ -109,7 +109,7 @@ class ConvNeXt(Backbone):
             self.add_module(layer_name, layer)
 
         self.apply(self._init_weights)
-        self._out_feature = [
+        self._out_features = [
             "c0",
             "c1",
             "c2",
