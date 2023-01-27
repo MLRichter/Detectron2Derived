@@ -13,6 +13,7 @@ import torch.nn.functional as F
 from timm.models.layers import trunc_normal_, DropPath
 
 from .build import BACKBONE_REGISTRY
+from .backbone import Backbone
 
 
 class Block(nn.Module):
