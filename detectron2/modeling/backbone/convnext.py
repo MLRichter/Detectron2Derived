@@ -121,6 +121,12 @@ class ConvNeXt(Backbone):
             "c2": 384,
             "c3": 768
         }
+        self._out_feature_strides = {
+            "c0": stem,
+            "c1": stem*2,
+            "c2": stem*4,
+            "c3": stem*8
+        }
 
 
     def _init_weights(self, m):
