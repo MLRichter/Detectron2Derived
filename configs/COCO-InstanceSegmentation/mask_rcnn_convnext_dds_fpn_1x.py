@@ -10,7 +10,7 @@ from detectron2.modeling.backbone.convnext import ConvNeXt
 
 # Replace default ResNet with RegNetX-4GF from the DDS paper. Config source:
 # https://github.com/facebookresearch/pycls/blob/2c152a6e5d913e898cca4f0a758f41e6b976714d/configs/dds_baselines/regnetx/RegNetX-4.0GF_dds_8gpu.yaml#L4-L9  # noqa
-model.backbone.bottom_up = ConvNeXt(
+model.backbone.bottom_up = L(ConvNeXt)(
     in_chans=3,
     depths=[3, 3, 9, 3],
     dims=[96, 192, 384, 768],
