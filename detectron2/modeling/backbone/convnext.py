@@ -12,8 +12,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from timm.models.layers import trunc_normal_, DropPath
 
-from mmcv_custom import load_checkpoint
-from mmdet.utils import get_root_logger
 from .build import BACKBONE_REGISTRY
 
 
@@ -134,8 +132,8 @@ class ConvNeXt(Backbone):
 
         if isinstance(pretrained, str):
             self.apply(_init_weights)
-            logger = get_root_logger()
-            load_checkpoint(self, pretrained, strict=False, logger=logger)
+            #logger = get_root_logger()
+            #load_checkpoint(self, pretrained, strict=False, logger=logger)
         elif pretrained is None:
             self.apply(_init_weights)
         else:
