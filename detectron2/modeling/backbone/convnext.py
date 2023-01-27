@@ -149,7 +149,7 @@ class ConvNeXt(Backbone):
             if i in self.out_indices:
                 norm_layer = getattr(self, f'norm{i}')
                 x_out = norm_layer(x)
-                outs[f"c{i}"] = x_out
+            outs[f"c{i}"] = x_out
 
         return outs
 
@@ -184,3 +184,15 @@ class LayerNorm(nn.Module):
             x = (x - u) / torch.sqrt(s + self.eps)
             x = self.weight[:, None, None] * x + self.bias[:, None, None]
             return x
+
+@BACKBONE_REGISTRY.register()
+def build_convnext_backbone(cfg, input_shape):
+    return ConvNeXt(
+        in_chans=3,
+        depths=[3, 3, 9, 3],
+        dims=[96, 192, 384, 768],
+        drop_path_rate=0.4,
+        layer_scale_init_value=1.0,
+        out_indices=[0, 1, 2, 3],
+        stem=4
+    )

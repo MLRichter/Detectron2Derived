@@ -1,0 +1,3 @@
+_BASE_: "../Base-RCNN-FPN_ConvNeXt.yaml"
+MODEL:
+  MASK_ON: True
