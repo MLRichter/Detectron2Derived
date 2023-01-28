@@ -1,5 +1,6 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
+  WEIGHTS: "checkpoint-best.pth"
   BACKBONE:
     NAME: "build_convnext_fpn_backbone"
   RESNETS:
