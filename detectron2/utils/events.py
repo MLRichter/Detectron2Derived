@@ -270,6 +270,7 @@ class CommonMetricPrinter(EventWriter):
             )
         )
 
+import wandb
 
 class EventStorage:
     """
@@ -324,6 +325,7 @@ class EventStorage:
         value = float(value)
         history.update(value, self._iter)
         self._latest_scalars[name] = (value, self._iter)
+        wandb.log({"name": value})
 
         existing_hint = self._smoothing_hints.get(name)
         if existing_hint is not None:

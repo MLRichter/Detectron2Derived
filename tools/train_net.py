@@ -123,6 +123,7 @@ def setup(args):
 
 def main(args):
     cfg = setup(args)
+    wandb.init(project="ObjectDetection", config=cfg)
 
     if args.eval_only:
         model = Trainer.build_model(cfg)
@@ -161,3 +162,4 @@ if __name__ == "__main__":
         dist_url=args.dist_url,
         args=(args,),
     )
+    wandb.finish()
