@@ -145,7 +145,7 @@ def main(args):
     trainer.resume_or_load(resume=args.resume)
     if cfg.TEST.AUG.ENABLED:
         trainer.register_hooks(
-            [hooks.EvalHook(0, lambda: trainer.test_with_TTA(cfg, trainer.model))]
+            [hooks.EvalHook(3500, lambda: trainer.test_with_TTA(cfg, trainer.model))]
         )
     return trainer.train()
 
