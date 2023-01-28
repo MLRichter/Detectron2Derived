@@ -37,7 +37,7 @@ from detectron2.evaluation import (
     verify_results,
 )
 from detectron2.modeling import GeneralizedRCNNWithTTA
-
+import wandb
 
 def build_evaluator(cfg, dataset_name, output_folder=None):
     """
