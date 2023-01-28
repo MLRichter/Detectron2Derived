@@ -1,5 +1,6 @@
 OUTPUT_DIR: "checkpoints/ConvNeXt_Tiny_21K/"
 MODEL:
+  PIXEL_STD: [0.224,  0.225, 0.229]
   META_ARCHITECTURE: "GeneralizedRCNN"
   MASK_ON: True
   WEIGHTS: "checkpoint-best.pth"
