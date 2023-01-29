@@ -8,6 +8,7 @@ import logging
 import numpy as np
 import os
 import pickle
+import wandb
 from collections import OrderedDict
 import pycocotools.mask as mask_util
 import torch
@@ -247,6 +248,7 @@ class COCOEvaluator(DatasetEvaluator):
         if self._output_dir:
             file_path = os.path.join(self._output_dir, "coco_instances_results.json")
             self._logger.info("Saving results to {}".format(file_path))
+            wandb.log(coco_results)
             with PathManager.open(file_path, "w") as f:
                 f.write(json.dumps(coco_results))
                 f.flush()
