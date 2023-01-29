@@ -1,9 +1,8 @@
-OUTPUT_DIR: "checkpoints/ConvNeXt_Tiny_21K/"
+OUTPUT_DIR: "checkpoints/ConvNeXt_Tiny_Scratch/"
 MODEL:
   PIXEL_STD: [0.224,  0.225, 0.229]
   META_ARCHITECTURE: "GeneralizedRCNN"
-  MASK_ON: True
-  WEIGHTS: "checkpoint-best.pth"
+  MASK_ON: False
   BACKBONE:
     NAME: "build_convnext_fpn_backbone"
   RESNETS:
